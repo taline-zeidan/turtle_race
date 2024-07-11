@@ -21,11 +21,18 @@ def get_key_from_value(dictionary, value):
             return key
     return None
 
+# def get_turtle(guess):
+#     if isinstance(guess, str):
+#         return guess
+#     elif isinstance(guess, (int, float)):
+#         return get_key_from_value(rainbow, guess)
 def get_turtle(guess):
     if isinstance(guess, str):
-        return guess
+        return guess.lower()  # Return lowercase string directly for color name
     elif isinstance(guess, (int, float)):
-        return get_key_from_value(rainbow, guess)
+        return get_key_from_value(rainbow, int(guess))  # Convert to int and get corresponding color name
+
+    return None  # Return None if guess is neither string nor number
 
 
 def move_turtles():
@@ -78,4 +85,5 @@ if winner == user_winner:
     print(f"The winner is {winner}. You win!")
 else:
     print(f"The winner is {winner}. You lose!")
+
 screen.exitonclick()
